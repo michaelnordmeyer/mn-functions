@@ -1,0 +1,252 @@
+# WordPress-SEO Replacement
+
+The functions.php can be copied over to many themes without the need for any changes.
+
+
+## Yoast SEO Settings
+
+Dashboard/General > Your Info:
+(Google author person json)
+	+ Website name: Manually in functions.php of your theme
+	+ Company or person: Manually in functions.php of your theme
+General > Webmaster Tools:
+	+ Verification for search engine tools: Manually in functions.php of your theme
+General > Security:
+	+ Disable the Advanced part of the Yoast SEO meta box: n/a because without this plugin there won't be this meta box.
+Titles & Metas > General:
+	+ Title Separator: Depends on the theme but is not necessary most of the time as it is just for the looks.
+	- Readability analysis
+	- Keyword analysis
+Titles & Metas > Homepage:
+	- Title template: %%sitename%% %%page%% %%sep%% %%sitedesc%%
+	+ Meta description template: Manually in functions.php of your theme
+Titles & Metas > Post Types:
+	Posts
+    	- Title template: %%title%% %%page%% %%sep%% %%sitename%%
+    	- Meta description template: Manually in functions.php of your theme
+    	+ Meta Robots: Manually in functions.php of your theme
+        - Date in Snippet Preview
+        - Yoast SEO Meta Box
+	Pages
+    	- Title template: %%title%% %%page%% %%sep%% %%sitename%%
+    	- Meta description template: Manually in functions.php of your theme
+    	+ Meta Robots: Manually in functions.php of your theme
+        - Date in Snippet Preview
+        - Yoast SEO Meta Box
+	Media
+    	- Title template: %%title%% %%page%% %%sep%% %%sitename%%
+    	- Meta description template: Manually in functions.php of your theme
+    	+ Meta Robots: Manually in functions.php of your theme
+        - Date in Snippet Preview
+        - Yoast SEO Meta Box
+Titles & Metas > Taxonomies:
+    Categories
+    	- Title template: %%term_title%% Archives %%page%% %%sep%% %%sitename%%
+    	- Meta description template: Manually in functions.php of your theme
+    	+ Meta Robots: Manually in functions.php of your theme
+        - Yoast SEO Meta Box
+    Tags
+    	- Title template: %%term_title%% Archives %%page%% %%sep%% %%sitename%%
+    	- Meta description template: Manually in functions.php of your theme
+    	+ Meta Robots: Manually in functions.php of your theme
+        - Yoast SEO Meta Box
+    Format
+    	- Title template: %%term_title%% Archives %%page%% %%sep%% %%sitename%%
+    	- Meta description template: Manually in functions.php of your theme
+    	+ Meta Robots: Manually in functions.php of your theme
+Jetpack
+%%title%% %%page%% %%sep%% %%sitename%% not sure about page
+Apple – Page 2 – Michael Nordmeyer
+- Yoast SEO Meta Boxes in general
+	+ Titles: Are fine with stock WordPress (Name (| Search Results) | Sitename | Page n) and changing them uses quite a lot of CPU power
+	+ Disable the author archives: Manually in functions.php of your theme
+	+ Disable the date-based archives: Manually in functions.php of your theme
+	+ Meta Robots: Manually in functions.php of your theme
+	+ Date in Snippet Preview: n/a because without this plugin there won't be this meta box. (For details see below)
+	+ Hide Yoast SEO Meta Box: n/a because without this plugin there won't be this meta box. (For details see below)
+Titles & Metas > Archives:
+	Author archives settings
+    	- Title template: %%name%%, Author at %%sitename%% %%page%%
+    	- Meta description template: Manually in functions.php of your theme
+    	+ Meta Robots: Manually in functions.php of your theme
+	Date archives settings
+    	- Title template: %%date%% %%page%% %%sep%% %%sitename%%
+    	- Meta description template: Manually in functions.php of your theme
+    	+ Meta Robots: Manually in functions.php of your theme
+	Special Pages (Search, 404)
+    	+ Robots nofollow: Manually in functions.php of your theme
+    	- Search pages Title template: You searched for %%searchphrase%% %%page%% %%sep%% %%sitename%%
+    	- 404 pages Title template: Page not found %%sep%% %%sitename%%
+Titles & Metas > Other:
+	+ Noindex subpages of archives: Manually in functions.php of your theme
+	+ Use meta keywords tag?: You don't need it as it is ignored by search engines
+	+ Force noodp meta robots tag sitewide: Manually in functions.php of your theme
+Social > Accounts:
+	- ? only variables for other settings
+Social > Facebook:
+	+ Add Open Graph meta data: Manually in functions.php of your theme
+	+ Frontpage settings: Manually in functions.php of your theme
+	+ Default settings: Manually in functions.php of your theme
+	+ Facebook Insights and Admins: Manually in functions.php of your theme. Get the code from https://www.facebook.com/insights, were yu have to select "Add your Domain"
+Social > Twitter:
+Social > Pinterist:
+Social > Google+:
+	+ All settings: Manually in functions.php of your theme
+XML Sitemaps:
+	+ All settings: Plugin Google XML Sitemaps or Jetpack
+Advanced > Breadcrumbs
+	- Breadcrumbs
+Advanced > Permalinks
+	+ Strip the category base: Plugin No Category Base (WPML)
+	+ Redirect attachment URL's to parent post URL: Manually in functions.php of your theme
+	+ Remove stop words from slugs: Manually in functions.php of your theme
+	- Remove the ?replytocom variables
+	+ Redirect ugly URLs to clean permalinks. (Not recommended in many cases!): Yeah, the recommendation is right. It will likely break more things than it helps
+		+ Prevent cleaning out Google Site Search URLs
+		+ Prevent cleaning out Google Analytics Campaign & Google AdWords Parameters
+gone + Clean up the <head>: Manually in functions.php of your theme
+Advanced > RSS
+	+ Content to put before/after each post in the feed: Manually in functions.php of your theme
+Search Console
+	+ The Yoast SEO search console is fairly limited. It only shows a small subset of the original Google Search Console. I recommend using the Google one.
+
+
+## Yoast SEO Meta Box while editing a post
+
+General:
+	+ Snippet preview: It's a nice touch, but you don't need this. You just have to be aware of the length (150 to 160 charcters) of the meta description or your first paragraph. But most likely every user who uses a search engine will see a custom snippet where the keywords the use searched for are in.
+	- Focus keyword
+	+ SEO title: Replaces the HTML title tag with this title so you can keep a longer post title while having a reasonable short one for SERP display. Makes only little sense because the SEO title is long enough to "break" your theme anyway, i.e. very long post titles look ugly.
+	- Meta description
+Page Analysis:
+	- Useful information
+Advanced:
+	+ Options to override default behavior for this particular post. It's very likely you don't need any of those options.
+Social:
+	+ Title, Description and Image for Facebook, Twitter and Google+: You don't need this, because the standard ones of your post are good enough. It might be handy to cater for different character or display limits.
+
+WordPress User Profile:
+	+ Added social profiles: Manually in functions.php of your theme
+
+Posts view in admin:
+	- SEO focus keyword indicator
+	+ SEO title: see General > Snippet preview
+	+ Meta Desc: Use excerpts instead
+	- Focus KW:
+
+
+## Yoast SEO Meta Box while editing a post
+
+SEO title, SEO description, Canonical, Noindex this category, Include in sitemap: Replaces the default settings from this very page to tailor these for SEO purposes. If you have meaningful settings you don't need special SEO settings for these. And your theme should take care for displaying these on the appropriate pages.
+
+
+- Homepage title template: %%sitename%% %%page%% %%sep%% %%sitedesc%%
+- Meta description taxonomy archives: %%term_title%% Archives %%page%% %%sep%% %%sitename%%
+- Meta description author: %%name%%, Author at %%sitename%% %%page%%
+- Meta description date archives: %%date%% %%page%% %%sep%% %%sitename%%
+- Meta description search pages: You searched for %%searchphrase%% %%page%% %%sep%% %%sitename%%
+- Meta description 404 pages: Page not found %%sep%% %%sitename%%
+- Title templates posts, pages, media: %%title%% %%page%% %%sep%% %%sitename%%
+- Title templates taxonomy archives: %%term_title%% Archives %%page%% %%sep%% %%sitename%%
+- Title templates author: %%name%%, Author at %%sitename%% %%page%%
+- Title templates date archives: %%date%% %%page%% %%sep%% %%sitename%%
+- Title templates search pages: You searched for %%searchphrase%% %%page%% %%sep%% %%sitename%%
+- Title templates 404 pages: Page not found %%sep%% %%sitename%%
+- Facebook open graph
+- Twitter cards
++ Sitemaps and ping to Google and Bing: Google XML Sitemaps, Xml Sitemap, XML Sitemap & Google News feeds
+- Disable category archives
+- Disable tag archives
++ Disable format archives
++ Disable media archives
++ Disable the date-based archives
++ Disable the author archives
++ noindex,follow for archives? If index, then excerpt, better description if there is one
++ Noindex subpages of archives to prevent /page/2/ and further of any archive to show up in the search results
++ Remove stop words from slugs
+- Enforce a trailing slash on all category and tag URLs
+
+
+## Yoast SEO Data
+
+HOMEPAGE
+<meta name="description" content="Michael Nordmeyer is a freelance software and web developer and project manager creating concepts, strategies and applications for web &amp; mobile.">
+<link rel="canonical" href="https://michaelnordmeyer.com">
+<link rel="next" href="https://michaelnordmeyer.com/page/4/">
+<link rel="prev" href="https://michaelnordmeyer.com/page/2/">
+<script type='application/ld+json'>{ "@context": "http://schema.org","@type": "Person","name": "Michael Nordmeyer","url": "https://michaelnordmeyer.com/","sameAs": ["https://www.linkedin.com/in/michaelnordmeyer","https://www.xing.com/profile/Michael_Nordmeyer","https://twitter.com/mnordmeyer"]}</script>
+<script type='application/ld+json'>{ "@context": "http://schema.org","@type": "WebSite","url": "https://michaelnordmeyer.com/","name": "Michael Nordmeyer","potentialAction": {"@type": "SearchAction","target": "https://michaelnordmeyer.com/?s={search_term}","query-input": "required name=search_term"}}</script>
+
+POST
+description?
+<link rel="canonical" href="https://michaelnordmeyer.com/wow-im-live/">
+
+PAGE
+<meta name="description" content="Michael Nordmeyer is a freelance software and web developer and project manager creating concepts, strategies and applications for web &amp; mobile.">
+<link rel="canonical" href="https://michaelnordmeyer.com/about/">
+<script type="application/ld+json">{"@context":"http:\/\/schema.org","@type":"WebSite","url":"https:\/\/michaelnordmeyer.com\/","name":"Michael Nordmeyer"}</script>
+
+CATEGORY/TAG ARCHIVE
+description?
+<link rel="canonical" href="https://michaelnordmeyer.com/apple/">
+<link rel="next" href="https://michaelnordmeyer.com/apple/page/2/">
+	<link rel="prev" href="https://michaelnordmeyer.com/apple/page/2/">
+<script type="application/ld+json">{"@context":"http:\/\/schema.org","@type":"WebSite","url":"https:\/\/michaelnordmeyer.com\/","name":"Michael Nordmeyer"}</script>
+
+FACEBOOK OPEN GRAPH
+
+STATIC
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="Michael Nordmeyer">
+<meta property="fb:admins" content="1015949513">
+
+HOMEPAGE
+<meta property="og:type" content="website">
+<meta property="og:title" content="Michael Nordmeyer - Mobile &amp; Web Apps">
+<meta property="og:description" content="Michael Nordmeyer is a freelance software and web developer and project manager creating concepts, strategies and applications for web &amp; mobile.">
+<meta property="og:url" content="https://michaelnordmeyer.com/">
+
+POST
+<meta property="og:type" content="article">
+<meta property="og:title" content="Wow, I&#039;m live! - Michael Nordmeyer">
+<meta property="og:description" content="Never thought I would get my blog up and running this decade.">
+<meta property="og:url" content="https://michaelnordmeyer.com/wow-im-live/">
+<meta property="article:section" content="Miscellaneous">
+<meta property="article:published_time" content="2008-01-06T18:21:00+00:00">
+
+PAGE
+<meta property="og:type" content="article">
+<meta property="og:title" content="About - Michael Nordmeyer">
+<meta property="og:description" content="Michael Nordmeyer is a freelance software and web developer and project manager creating concepts, strategies and applications for web &amp; mobile.">
+<meta property="og:url" content="https://michaelnordmeyer.com/about/">
+
+CATEGORY/TAG ARCHIVE
+<meta property="og:type" content="object">
+<meta property="og:title" content="Apple Archives - Michael Nordmeyer">
+<meta property="og:description" content="Everything Apple: Mac, iPhone, iPad, iOS and OS X. Might contain traces of watches.">
+<meta property="og:url" content="https://michaelnordmeyer.com/apple/">
+
+TWITTER CARDS
+
+STATIC
+<meta name="twitter:card" content="summary">
+<meta name="twitter:site" content="@mnordmeyer">
+<meta name="twitter:domain" content="Michael Nordmeyer">
+
+HOMEPAGE
+<meta name="twitter:description" content="Michael Nordmeyer is a freelance software and web developer and project manager creating concepts, strategies and applications for web &amp; mobile.">
+<meta name="twitter:title" content="Michael Nordmeyer - Mobile &amp; Web Apps">
+
+POST
+<meta name="twitter:description" content="Never thought I would get my blog up and running this decade.">
+<meta name="twitter:title" content="Wow, I&#039;m live! - Michael Nordmeyer">
+<meta name="twitter:creator" content="@mnordmeyer">
+
+PAGE
+<meta name="twitter:description" content="Michael Nordmeyer is a freelance software and web developer and project manager creating concepts, strategies and applications for web &amp; mobile."/>
+<meta name="twitter:title" content="About - Michael Nordmeyer">
+<meta name="twitter:creator" content="@mnordmeyer">
+
+CATEGORY ARCHIVE
+description?
+<meta name="twitter:title" content="Apple Archives - Michael Nordmeyer">

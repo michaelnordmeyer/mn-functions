@@ -1,0 +1,13 @@
++No tracking of admin users
++Track RSS feeds
++Track search
++Track 404
++Add annotation on new post
+Piwik Toolbar
+Piwik Statistics
+Track RSS feed links as campaign
+Automatic update when changing blog name or siteurl
+
+// http://developer.piwik.org/api-reference/tracking-javascript
+// _paq.push(['setDoNotTrack', true]);
+// setHeartBeatTimer( minimumVisitLength, heartBeatDelay ) - records how long the page has been viewed if the minimumVisitLength (in seconds) is attained; the heartBeatDelay determines how frequently to update the server

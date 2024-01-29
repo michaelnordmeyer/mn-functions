@@ -19,7 +19,7 @@ add_filter( 'the_excerpt_rss', 'mn_add_piwik_feed_tracking' );
 function mn_add_piwik_tracking() {
 	if ( ! is_user_logged_in() && ! current_user_can( 'administrator' ) && ! current_user_can( 'editor' ) && ! current_user_can( 'author' ) && ! current_user_can( 'contributor' ) ) {
 		$mn_piwik_url = PIWIK_URL;
-        $mn_piwik_site_id = PIWIK_SITE_ID;
+    $mn_piwik_site_id = PIWIK_SITE_ID;
 
 		$push_variables = "";
 

@@ -90,11 +90,11 @@ EOL;
 }
 
 // function mn_resource_hints( $hints, $relation_type ) {
-//     if ( 'dns-prefetch' === $relation_type ) {
-//         $hints[] = 'https://stats.michaelnordmeyer.com/';
-//     }
-//
-//     return $hints;
+//   if ( 'dns-prefetch' === $relation_type ) {
+//     $hints[] = 'https://stats.michaelnordmeyer.com/';
+//   }
+
+//   return $hints;
 // }
 
 
@@ -102,12 +102,12 @@ EOL;
 
 // Put echo reading_time(); in e.g. entry-meta.php
 function mn_reading_time( $post_ID ) {
-    if ( $post_ID == null ) {
-        $post_ID = get_the_ID();
-    }
-    $reading_time = ceil( str_word_count( strip_tags( get_post_field( 'post_content', $post_ID ) ) ) / 200 );
-    $unit = ( $reading_time == 1 ) ? " minute" : " minutes";
-    return $reading_time . $unit;
+  if ( $post_ID == null ) {
+    $post_ID = get_the_ID();
+  }
+  $reading_time = ceil( str_word_count( strip_tags( get_post_field( 'post_content', $post_ID ) ) ) / 200 );
+  $unit = ( $reading_time == 1 ) ? " minute" : " minutes";
+  return $reading_time . $unit;
 }
 
 
@@ -184,14 +184,14 @@ add_action( 'wp_footer', 'mn_add_pingdom_rum', 98 );
 // Change text from WordPress afterwards to avoid copying php files
 // Functions is called for _every_ translation call, even when the blog runs in English
 function mn_twenty_something_text_wrangler( $translation, $text, $domain ) {
-    if ( substr( $domain, 0, strlen('twenty') ) === 'twenty' ) {
-    	if ( $text == 'https://wordpress.org/' ) {
-    		return WP_HOME . '/';
-    	}
-    	if ( $text == 'Proudly powered by %s' ) {
-    		return '&copy 2008&ndash;' . date('Y') . ' Michael Nordmeyer';
-    	}
+  if ( substr( $domain, 0, strlen('twenty') ) === 'twenty' ) {
+    if ( $text == 'https://wordpress.org/' ) {
+      return WP_HOME . '/';
     }
+    if ( $text == 'Proudly powered by %s' ) {
+      return '&copy 2008&ndash;' . date('Y') . ' Michael Nordmeyer';
+    }
+  }
 
 	return $translation;
 }
@@ -212,7 +212,8 @@ require_once( 'yoast-seo-replacement.php' );
 // Jetpack Sitemap Replacement ////////////////////////////////////////////////
 /*
 if ( '1' == get_option( 'blog_public' ) ) {
-    require_once( 'jetpack-replacement/sitemap-xml.php' );
-    require_once( 'jetpack-replacement/jetpack-postimages.php' );
-    require_once( 'jetpack-replacement/jetpack-sitemap-xml.php' );
-}*/
+  require_once( 'jetpack-replacement/sitemap-xml.php' );
+  require_once( 'jetpack-replacement/jetpack-postimages.php' );
+  require_once( 'jetpack-replacement/jetpack-sitemap-xml.php' );
+}
+*/

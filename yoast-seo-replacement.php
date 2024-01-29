@@ -46,9 +46,9 @@ function mn_meta_robots() {
 	// This is for what is displayed at your site's main URL. Depends on the site's "Front page displays" Reading Settings 'show_on_front' and 'page_on_front'. If you set a static page for the front page of your site, this function will return true when viewing that page. Otherwise the same as is_home().
 	// is_home() ==
 	// This is the page which shows the time based blog content of your site. Depends on the site's "Front page displays" Reading Settings 'show_on_front' and 'page_for_posts'. If you set a static page for the front page of your site, this function will return true only on the page you set as the "Posts page".
-//echo '<link rel="canonical" href="' . esc_url( $canonical, null, 'other' ) . '" />' . "\n";
-    $robots_content = 'noodp';
-    
+  // echo '<link rel="canonical" href="' . esc_url( $canonical, null, 'other' ) . '" />' . "\n";
+  $robots_content = 'noodp';
+
 	if ( is_archive() || is_attachment() || is_search() || ( is_front_page() && is_paged() ) ) {
 		$robots_content .= ',noindex,follow';
 	}
@@ -57,7 +57,7 @@ function mn_meta_robots() {
 
 
 function mn_get_social_type() {
-    
+
 }
 
 
@@ -68,7 +68,7 @@ function mn_get_social_title() {
 	elseif( is_single() || is_page() ) {
 		return esc_attr( get_the_excerpt() );
 	}
-    return '';   
+  return '';
 }
 
 
@@ -79,27 +79,27 @@ function mn_get_social_meta_description() {
 	elseif( is_single() || is_page() ) {
 		return esc_attr( get_the_excerpt() );
 	}
-    return '';
+  return '';
 }
 
 
 function mn_get_social_url() {
-    return get_permalink( get_the_ID() );
+  return get_permalink( get_the_ID() );
 }
 
 
 function mn_get_social_site_name() {
-    
+
 }
 
 
 function mn_add_facebook_opengraph() {
-    $type = mn_get_social_type();
-    $title = mn_get_social_title();
+  $type = mn_get_social_type();
+  $title = mn_get_social_title();
 	$description = mn_get_social_meta_description();
-    $url = mn_get_social_url();
-    $site_name = mn_get_social_site_name();
-    
+  $url = mn_get_social_url();
+  $site_name = mn_get_social_site_name();
+
 	echo <<<EOL
 	<meta property="og:locale" content="en_US">
 	<meta property="og:type" content="$type">

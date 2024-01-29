@@ -464,7 +464,6 @@ function jetpack_print_sitemap() {
  * @link http://sitemaps.org/protocol.php Sitemaps.org protocol.
  */
 function jetpack_print_news_sitemap() {
-
 	$xml = get_transient( 'jetpack_news_sitemap' );
 
 	if ( $xml ) {

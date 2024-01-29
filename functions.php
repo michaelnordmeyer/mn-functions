@@ -39,11 +39,11 @@ add_action( 'pre_ping', 'mn_no_self_ping' );
 
 require_once( 'wp-piwik-replacement-all.php' );
 if ( is_admin() ) {
-    require_once( 'functions-admin.php' );
+  require_once( 'functions-admin.php' );
 }
 else {
-    require_once( 'functions-frontend.php' );
-//    require_once( 'auto-excerpts-everywhere.php' );
+  require_once( 'functions-frontend.php' );
+  // require_once( 'auto-excerpts-everywhere.php' );
 }
 
 
